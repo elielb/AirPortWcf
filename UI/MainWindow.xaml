@@ -1,0 +1,97 @@
+﻿<Window x:Class="UI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UI"
+        xmlns:mv="clr-namespace:UI.ViewModel"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="350" Width="525"
+        DataContext="{Binding Source={StaticResource Locator} , Path=Main}">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="1">
+            <!--Station Number 1-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="Black" />
+            <TextBlock x:Name="StationTXT1" FontSize="20"  VerticalAlignment="Bottom"  HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Path=Station1,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True,UpdateSourceTrigger=PropertyChanged}" />
+            <Label Content="Station No' 1"   HorizontalAlignment="Center" FontSize="8" Height="19.222"  VerticalAlignment="Top" />
+            <Label Content="Flight Number"  HorizontalAlignment="Center" FontSize="8" Height="19.222"  VerticalAlignment="Center" />
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="2">
+            <!--Station Number 2-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" Stroke="Black" />
+            <TextBlock x:Name="StationTXT2" FontSize="20"  HorizontalAlignment="Center"  VerticalAlignment="Bottom"  TextWrapping="Wrap" Text="{Binding Path=Station2,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" />
+            <Label Content="Station No' 2" HorizontalAlignment="Center" VerticalAlignment="Top"  FontSize="8" />
+            <Label Content="Flight Number" HorizontalAlignment="Center" VerticalAlignment="Center"  FontSize="8" />
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="3">
+            <!--Station Number 3-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch" />
+            <TextBlock x:Name="StationTXT3" FontSize="20"  HorizontalAlignment="Center" TextWrapping="Wrap"  Text="{Binding Path=Station3,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" VerticalAlignment="Bottom" />
+            <Label Content="Station No' 3" HorizontalAlignment="Center" VerticalAlignment="Top"   FontSize="8" />
+            <Label Content="Flight Number" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" />
+        </Grid>
+
+        <Grid Grid.Row="0" Grid.Column="4">
+            <!--Station Number 4-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch" />
+            <TextBlock x:Name="StationTXT4" FontSize="20"  HorizontalAlignment="Center"  TextWrapping="Wrap"  Text="{Binding Path=Station4,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" VerticalAlignment="Bottom" />
+            <Label Content="Station No' 4" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="8" />
+            <Label Content="Flight Number" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" />
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="1">
+            <!--Station Number 5-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch"  Stroke="Black" VerticalAlignment="Stretch" />
+            <TextBlock x:Name="StationTXT5" FontSize="20"  HorizontalAlignment="Center"  TextWrapping="Wrap"  Text="{Binding Path=Station5,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" VerticalAlignment="Bottom" />
+            <Label Content="Station No' 5" HorizontalAlignment="Center"  VerticalAlignment="Top" FontSize="8" />
+            <Label Content="Flight Number" HorizontalAlignment="Center"  VerticalAlignment="Center" FontSize="8" />
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="2">
+            <!--Station Number 6-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch"  Stroke="Black" VerticalAlignment="Stretch" />
+            <TextBlock x:Name="StationTXT6" FontSize="20"  HorizontalAlignment="Center"  TextWrapping="Wrap" Text="{Binding Path=Station6,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" VerticalAlignment="Bottom" />
+            <Label Content="Station No' 6" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="8" />
+            <Label Content="Flight Number" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" />
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="3">
+            <!--Station Number 7-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch"  Stroke="Black" VerticalAlignment="Stretch" />
+            <TextBlock x:Name="StationTXT7" FontSize="20"  HorizontalAlignment="Center"  TextWrapping="Wrap" Text="{Binding Path=Station7,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" VerticalAlignment="Bottom" />
+            <Label Content="Station No' 7" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="8" />
+            <Label Content="Flight Number" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" />
+        </Grid>
+
+        <Grid Grid.Row="1" Grid.Column="4">
+            <!--Station Number 8-->
+            <Rectangle Fill="#FFF4F4F5" HorizontalAlignment="Stretch" Stroke="Black" VerticalAlignment="Stretch" />
+            <TextBlock x:Name="StationTXT8" FontSize="20"  HorizontalAlignment="Center" TextWrapping="Wrap" Text="{Binding Path=Station8,Mode=TwoWay,NotifyOnSourceUpdated=True,NotifyOnTargetUpdated=True}" VerticalAlignment="Bottom" />
+            <Label Content="Station No' 8" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="8" />
+            <Label Content="Flight Number" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="8" />
+        </Grid>
+
+        <ListView  ItemsSource="{Binding ViewList.View}">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn  Header="Waiting List"  DisplayMemberBinding="{Binding PlaneID}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
+    </Grid>
+</Window>

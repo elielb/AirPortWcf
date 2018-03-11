@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="LogicService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IDALService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="NetTcpBinding_IWaitingListService_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8199/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8199/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8199/?xsd=xsd2" namespace="http://schemas.datacontract.org/2004/07/ContractsServer.Models" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IDALService_GetListPlanes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetListPlanes" />
+  </wsdl:message>
+  <wsdl:message name="IDALService_GetListPlanes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetListPlanesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IDALService_GetPlane_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetPlane" />
+  </wsdl:message>
+  <wsdl:message name="IDALService_GetPlane_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetPlaneResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWaitingListService_GetWatingList_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetWatingList" />
+  </wsdl:message>
+  <wsdl:message name="IWaitingListService_GetWatingList_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetWatingListResponse" />
+  </wsdl:message>
+  <wsdl:message name="IWaitingListService_GetWatingListCallBack_OutputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetWatingListCallBack" />
+  </wsdl:message>
+  <wsdl:message name="IWaitingListService_GetWatingListCallBack_InputCallbackMessage">
+    <wsdl:part name="parameters" element="tns:GetWatingListCallBackResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IDALService">
+    <wsdl:operation name="GetListPlanes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IDALService/GetListPlanes" message="tns:IDALService_GetListPlanes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IDALService/GetListPlanesResponse" message="tns:IDALService_GetListPlanes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPlane">
+      <wsdl:output wsaw:Action="http://tempuri.org/IDALService/GetPlane" message="tns:IDALService_GetPlane_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IDALService/GetPlaneResponse" message="tns:IDALService_GetPlane_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="IWaitingListService">
+    <wsdl:operation name="GetWatingList">
+      <wsdl:input wsaw:Action="http://tempuri.org/IWaitingListService/GetWatingList" message="tns:IWaitingListService_GetWatingList_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IWaitingListService/GetWatingListResponse" message="tns:IWaitingListService_GetWatingList_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetWatingListCallBack">
+      <wsdl:output wsaw:Action="http://tempuri.org/IWaitingListService/GetWatingListCallBack" message="tns:IWaitingListService_GetWatingListCallBack_OutputCallbackMessage" />
+      <wsdl:input wsaw:Action="http://tempuri.org/IWaitingListService/GetWatingListCallBackResponse" message="tns:IWaitingListService_GetWatingListCallBack_InputCallbackMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NetTcpBinding_IDALService" type="tns:IDALService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IDALService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetListPlanes">
+      <soap12:operation soapAction="http://tempuri.org/IDALService/GetListPlanes" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPlane">
+      <soap12:operation soapAction="http://tempuri.org/IDALService/GetPlane" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IWaitingListService" type="tns:IWaitingListService">
+    <wsp:PolicyReference URI="#NetTcpBinding_IWaitingListService_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetWatingList">
+      <soap12:operation soapAction="http://tempuri.org/IWaitingListService/GetWatingList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetWatingListCallBack">
+      <soap12:operation soapAction="http://tempuri.org/IWaitingListService/GetWatingListCallBack" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LogicService">
+    <wsdl:port name="NetTcpBinding_IDALService" binding="tns:NetTcpBinding_IDALService">
+      <soap12:address location="net.tcp://localhost:8200/LogicService" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8200/LogicService</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>Danit-PC\Danit</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IWaitingListService" binding="tns:NetTcpBinding_IWaitingListService">
+      <soap12:address location="net.tcp://localhost:8200/LogicService2" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:8200/LogicService2</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>Danit-PC\Danit</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
